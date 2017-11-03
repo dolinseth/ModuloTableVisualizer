@@ -37,7 +37,7 @@ namespace ModulusTableVisualizer
 
             //creates the image where the grayscale shifts through whole spectrum as value increases
             byte Color;
-            for (int y = 0; y < size; y++)
+            /*for (int y = 0; y < size; y++)
             {
                 for (int x = 0; x < size; x++)
                 {
@@ -45,7 +45,7 @@ namespace ModulusTableVisualizer
                     WritePixel(x, y, Color, Color, Color);
                 }
             }
-            SaveArrayAsImage(ImageBuffer, "BlackAndWhite-" + size);
+            SaveArrayAsImage(ImageBuffer, "BlackAndWhite-" + size);*/
 
             //creates the image where the grayscale shifts through whole spectrum as digit count increases increases
             for (int y = 0; y < size; y++)
@@ -57,6 +57,8 @@ namespace ModulusTableVisualizer
                 }
             }
             SaveArrayAsImage(ImageBuffer, "BlackAndWhiteDigitCount-" + size);
+
+            Console.WriteLine("Done, press enter to continue.");
             Console.ReadLine();
         }
 
@@ -76,7 +78,7 @@ namespace ModulusTableVisualizer
         {
             int max = MaxVal.ToString().Length;
             int ConvFact = 128 / max;
-            return (byte)(Val * ConvFact + 64);
+            return (byte)(Val.ToString().Length * ConvFact + 64);
         }
 
         private static byte CalcColorBW(int MaxVal, int Val)
